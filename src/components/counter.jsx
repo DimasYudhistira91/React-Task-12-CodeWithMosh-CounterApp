@@ -3,27 +3,32 @@ import React, { Component } from 'react';
 class Counter extends Component {
   state = {
     count: 0,
-  };
+  }; 
 
-  constructor() {
-    super();
-    this.handleIncrement = this.handleIncrement.bind(this);
-  }
-  
   styles = {
     fontSize: 20,
     fontWeight: 'bold',
   };
 
-  handleIncrement() {
-    console.log('INCREMENT CLICKED', this.state.count)
-  }
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
 
   render() {
     return (
       <React.Fragment>
-        <span style={this.styles} className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button onClick={this.handleIncrement} className='btn btn-secondary btn-sm'>Increment</button>
+        <span
+          style={this.styles}
+          className={this.getBadgeClasses()}
+        >
+          {this.formatCount()}
+        </span>
+        <button
+          onClick={this.handleIncrement}
+          className='btn btn-secondary btn-sm'
+        >
+          Increment
+        </button>
       </React.Fragment>
     );
   }
